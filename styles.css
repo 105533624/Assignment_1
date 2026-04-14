@@ -1,0 +1,234 @@
+/*general styles for all the web pages*/
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 10px;
+    padding: 10;
+    line-height: 1.6;
+    background-color: #F9FAFC;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #084887; ;
+    color: #F9FAFC;
+    padding: 1em 2em;
+    text-align: center;
+}
+.tagline{
+    color:#3b5ccc;
+    font-weight:bold;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.logo img{
+    max-height: 50px;
+    
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #F9FAFC;
+}
+
+.logo-text .tagline{
+    margin-top: 0.2em;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    color:  #C874D9;
+    font-style: italic;
+}
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+   
+}
+
+nav li {
+    display: inline-block; /*makes it horizontal*/
+    margin: 0 1em;
+}
+
+nav a{
+    color: #f8f8f8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: lightgray;
+}
+
+.welcome{
+    text-align: center;
+    padding: 3em 2em;
+    background: linear-gradient(135deg, #B4654A, #F5C107);
+    color: #F9FAFC;
+    border-radius: 10px;
+    margin: 2em auto;
+    max-width: 80%;
+}
+
+.welcome h2{
+    margin: 0;
+    font-size: 2em;
+    color: white;
+}
+
+.welcome p{
+    margin-top: 0.5em;
+    font-size: 1.1em;
+}
+
+.welcome .cta{
+    margin-top: 1.5em;
+    padding: 0.8em 1.5em;
+    background-color: #084887;
+    border: none;
+    border-radius: 6px;
+    color: #f7f7f7;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.welcome .cta:hover{
+    background-color: #ccc;
+}
+
+.services{
+    padding: 3em 2em;
+    max-width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.services h2{
+    font-size: 1.8em;
+    color: black;
+    margin-bottom: 0.5em;
+}
+
+.service-grid{
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+
+.service-card{
+    background-color: #8cc1ed;
+    color: #fff;
+    padding: 1.5em;
+    border-radius: 12px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover{
+    transform: translateY(-5x);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #208ae1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card h3{
+    color: black;
+    margin-bottom: 0.5em;
+}
+
+.service-card .price{
+    display: block;
+    margin-top: 1em;
+    font-weight: bold;
+    color: black;
+}
+
+
+/*Acknowledgement of Country section*/
+.acknowledgement{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #F5C107;
+    color: #fff;
+    padding: 1.5em;
+    margin: 2em auto;
+    border-left: 6px solid #f5b207; 
+    max-width: 80%;
+    border-radius: 10px;
+    gap: 3em;
+}
+
+.ack-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 2em;
+    margin-right: 2em;
+}
+
+.ack-text h2{
+    color: #C874D9;
+    margin-bottom: 0.5em;
+}
+
+.ack-images {
+    flex: 0 0 10%;
+    padding-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.ack-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    object-fit: cover;
+}
+
+.footer{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color:#084887 ;
+    color: #fff;
+    padding: 1em;
+    margin: 1em auto;
+    border-left: 6px solid #9db6eb; 
+    max-width: 400%;
+    border-radius: 4px;
+    gap: 1em;
+
+}
+/*CSS for apply.html*/
+.form-section{
+    display: flex; /*using a flexbox layout which would make the entire layout flexible e.g right, left etc*/
+    justify-content: center;/*It center aligns.*/
+    align-items: center; /*center vertically*/
+    min-height: 50em;
+    padding: 0 5em; /*We can use upto 4 values,0 for up down. 5 for left and right*/
+    background-color:#084887;
+}
+
+.form-container{
+    background-color: #fff;
+    padding:3em;
+    border-radius: 0.8em;
+    border:1em solid #f5b207;
+
+}
