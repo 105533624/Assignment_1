@@ -1,3 +1,4 @@
+/* =============== BASE =============== */
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 10px;
@@ -6,6 +7,7 @@ body {
     background-color: #F9FAFC;
 }
 
+/* =============== HEADER & LOGO =============== */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,14 +41,7 @@ header {
     color: #F9FAFC;
 }
 
-.logo-text .tagline {
-    margin-top: 0.2em;
-    margin-bottom: 0;
-    font-size: 0.9em;
-    color: #C874D9;
-    font-style: italic;
-}
-
+/* =============== NAVIGATION =============== */
 nav ul {
     list-style: none;
     padding: 0;
@@ -71,6 +66,7 @@ nav a:hover, nav a:focus {
     text-decoration: underline;
 }
 
+/* =============== HOME , HERO / WELCOME =============== */
 .welcome {
     text-align: center;
     padding: 4em 2em;
@@ -92,7 +88,7 @@ nav a:hover, nav a:focus {
     color: #FFFFFF;
 }
 
-
+/* =============== CTA BUTTONS (site-wide) =============== */
 .cta {
     margin-top: 1.5em;
     padding: 1em 2em;
@@ -116,6 +112,7 @@ nav a:hover, nav a:focus {
     transform: scale(1.05);
 }
 
+/* =============== HOME , HERO SEARCH FORM =============== */
 .hero-search {
     margin-top: 2em;
     display: flex;
@@ -142,16 +139,7 @@ nav a:hover, nav a:focus {
     outline: 3px solid #F5C107;
 }
 
-.welcome .cta:hover, 
-.welcome .cta:focus {
-    background-color: #084887;
-    color: #FFFFFF;
-    outline: 3px solid #B4654A;
-    transform: scale(1.05);
-}
-
-
-
+/* =============== HOME , SERVICES SECTION =============== */
 .hours-section {
     padding-top: 0;
 }
@@ -169,6 +157,7 @@ nav a:hover, nav a:focus {
     margin-bottom: 0.5em;
 }
 
+/* =============== HOME , SERVICE CARDS =============== */
 .service-grid {
     display: flex;
     gap: 2em;
@@ -179,7 +168,7 @@ nav a:hover, nav a:focus {
 
 .service-card {
     background-color: #8cc1ed;
-    color: #fff;
+    color: #1a1a1a;
     padding: 1.5em;
     border-radius: 12px;
     flex: 1 1 250px;
@@ -205,6 +194,7 @@ nav a:hover, nav a:focus {
     color: black;
 }
 
+/* =============== TABLES (studio hours, fun facts) =============== */
 table {
     width: 80%;
     margin: 2em auto;
@@ -240,6 +230,7 @@ tbody tr:hover {
     color: #000;
 }
 
+/* =============== ACKNOWLEDGEMENT OF COUNTRY =============== */
 .acknowledgement {
     display: flex;
     justify-content: space-between;
@@ -281,6 +272,7 @@ tbody tr:hover {
     border: 1px solid #ccc;
 }
 
+/* =============== FOOTER =============== */
 .footer {
     display: flex;
     justify-content: space-between;
@@ -308,6 +300,7 @@ tbody tr:hover {
     text-decoration: underline;
 }
 
+/* =============== RESPONSIVE, MOBILE BREAKPOINT =============== */
 @media screen and (max-width: 768px) {
     header, .footer {
         flex-direction: column;
@@ -337,6 +330,7 @@ tbody tr:hover {
     }
 }
 
+/* =============== JOBS PAGE , ASIDE SIDEBAR =============== */
 .benefits-sidebar {
     float: right;
     width: 25%;
@@ -347,6 +341,7 @@ tbody tr:hover {
     border-radius: 8px;
 }
 
+/* =============== MARK HIGHLIGHT (about page student IDs) =============== */
 mark {
     background-color: #d1e7dd; 
     color: #000000;
@@ -355,6 +350,7 @@ mark {
     font-weight: bold;
 }
 
+/* =============== JOBS PAGE, JOB LISTINGS =============== */
 .job-listing h2 {
     color: #084887;
     margin-top: 0;
@@ -365,11 +361,6 @@ mark {
     font-size: 1.2em;
     margin-bottom: 10px;
     border-bottom: 1px solid #eee;
-}
-
-.job-container {
-    width: 70%;
-    float: left;
 }
 
 .job-listing {
@@ -416,4 +407,70 @@ mark {
 
 .job-listing li {
     margin-bottom: 8px;
+}
+
+/*CSS for apply.html*/
+.form-section{
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    min-height: 50em;
+    padding: 0 5em; 
+    background-color:#F9FAFC;
+}
+
+.form-container{
+    background-color: #fff;
+    padding: 3em;
+    border-radius: 0.8em;
+    border: 0.3em solid #8cc1ed;
+    box-shadow: 0 4px 20px rgba(8, 72, 135, 0.15);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeIn 0.6s ease-in;
+}
+
+.form-buttons{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.form-buttons button{
+    padding: 0.8em 1.5em;
+    margin: 0 0.5em;
+    border: none;
+    border-radius: 6px;
+    background-color: #084887;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-buttons button:hover{
+    background-color: #062f5b;
+}
+fieldset{
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+}
+
+legend{
+    font-weight: bold;
+    color: #084887;
+}
+
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
