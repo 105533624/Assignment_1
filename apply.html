@@ -42,9 +42,9 @@
 </header>
     <!-- PAGE TITLE + INTRO -->
      <main>
+     <section class="form-section">
     <h2 style="text-align: center;">Apply for a Position</h2>
     <p class="form-intro" style="text-align: center; color: #084887; font-weight: bold; font-style: italic;">Please fill in your details below to apply. All fields are required.</p>
-    <section class="form-section">
     <form class="form-container" method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">    <!-- FORM: Sends data to server using POST method -->
         <!-- FIELDSET 1: JOB DETAILS -->
         <fieldset>
@@ -79,7 +79,7 @@
             <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z ]{1,40}" required><br><br>
             <label for="state">State</label>
             <select id="state" name="state" required><!-- Dropdown menu -->
-             <option value="Please Select">Please Select</option> 
+             <option value="" disabled selected>Please Select</option> 
              <option value="VIC">VIC</option>
              <option value="NSW">NSW</option> 
              <option value="QLD">QLD</option> 
@@ -103,7 +103,6 @@
         <!-- FIELDSET 5: SKILLS (CHECKBOXES - MULTIPLE CAN BE SELECTED) -->
         <fieldset>
             <legend><b>Skills Needed</b></legend>
-            <label for="skill">Skills list</label>
             <ul>
     <li>
         <input type="checkbox" id="skill-html" name="skills[]" value="HTML">
