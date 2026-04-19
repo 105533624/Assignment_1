@@ -1,78 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <!-- =========================
+         META DATA + PAGE SETUP
+    ========================== -->
+    <meta charset="UTF-8"> <!-- Ensures responsive design on mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextGen Web Works - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"><!-- External CSS -->
+    <!-- Hero background styling -->
+    <style>
+        .hero-bg {
+            background-image: 
+                linear-gradient(rgba(8, 72, 135, 0.85), rgba(8, 72, 135, 0.85)),
+                url('images/Gemini_Generated_Image_o8qlqro8qlqro8ql.png');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
+    <!-- =========================
+         HEADER (LOGO + NAV)
+    ========================== -->
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="NextGen Web Works Logo" width="100">
-           
-            
-        </div>
-    <nav>
-    <ul>
-        <li><a href="index.html" title="Home Page">Home</a></li>
-        <li><a href="jobs.html" title="Browse Careers">Jobs</a></li>
-        <li><a href="apply.html" title="Submit Application">Apply</a></li>
-        <li><a href="about.html" title="About the Team">About Us</a></li>
-    </ul>
-</nav>
-    </header>
-<main>
-    <section class="welcome">
-        <h2>Welcome to NextGen Web Works</h2>
-         <div>
-                <p class="tagline">Designing the Digital Future, Today</p>
-            </div>
-        <p>We are a <strong>Creative Digital Media Agency</strong> specializing in web design and branding.</p>
-        <button class="cta">Explore Our Studio</button>
-    </section>
+            <!-- Logo image with descriptive alt text -->
+            <img src="images/logo.png" alt="NextGen Web Works company logo" width="100">
 
-    <section class="services">
-        <h2>Our Services</h2>
-        <p>NextGen Web Works offers a variety of digital Solutions.</p>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Web Design</h3>
-                <p>Beautiful, responsive website tailored to your need.</p>
-                <span class="price">$800 - $1500</span>
-            </div>
-            <div class="service-card">
-                <h3>SEO Optimisation</h3>
-                <p>Boost your visibility and reach more customers</p>
-                <span class="price">$400 - $900</span>
-            </div>
-            <div class="service-card">
-                <h3>Custom Enterprise Solutions</h3>
-                <p>Contact us for a specialised quote tailored to your business.</p>
-                <span class="price">$500 - $100</span>
+            <div class="logo-text">
+                <h1>NextGen Web Works</h1>
             </div>
         </div>
-    </section>
-</main>
-        
-<div class="acknowledgement">
-    <div class=""ack-text">
-        <h2>Acknowledgement of Country</h2><b></b>
-        <p><em>NextGen Web Works acknowledges the Traditional Owners and Custodians of the lands on which we work and create. We pay our respects to Indigenous Elders past, present, and emerging, and celebrate the continuous continuous connection to Country, culture, and community.</em></p>
-    </div>
-    <div class="ack-images">
-        <img src="images/Aboriginal.webp" alt="Aboriginal flag">
-        <img src="images/Torres.jpg" alt="Torres Straight Islander flag">
-    </div>
-</div>
-<footer div class="footer">
-    <p>&copy; 2026 G06 Creative Media &amp; Design</p>
-    
-    <p>Contact us: <a href="mailto:info@nextgenwebworks.com" title="Email our recruitment team">info@nextgenwebworks.com</a></p>
-    
-    <p><a href="https://jira.swin.edu.au/..." target="_blank">Jira Board</a></p>
-    <p><a href="https://github.com/105533624/Assignment_1" target="_blank">GitHub Repository</a></p>
-</footer>
-    
+        <!-- Navigation menu -->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" title="Home Page">Home</a></li>
+                <li><a href="jobs.html" title="Browse Careers">Jobs</a></li>
+                <li><a href="apply.html" title="Submit Application">Apply</a></li>
+                <li><a href="about.html" title="About the Team">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main>
+        <!-- HERO / WELCOME SECTION -->
+        <section class="welcome hero-bg" aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome to NextGen Web Works</h2>
+            <p class="tagline">Designing the Digital Future, Today</p>
+            <p>
+                We are a <strong>Creative Digital Media Agency</strong> 
+                specialising in web design and branding.
+            </p>
+            <!-- Search form -->
+            <form action="jobs.html" method="get" class="hero-search" role="search">
+                <label for="site-search"><strong>Search Job Vacancies:</strong></label>
+                <input
+                    type="text" 
+                    id="site-search" 
+                    name="q" 
+                    placeholder="e.g. Web Designer"
+                    aria-label="Search job vacancies"
+                >
+                <button type="submit" class="cta">Search</button>
+            </form>
+        </section>
+        <!-- =========================
+             SERVICES SECTION
+        ========================== -->
+        <section class="services" aria-labelledby="services-heading">
+            <h2 id="services-heading">Our Services</h2>
+            <p>NextGen Web Works offers a variety of digital solutions.</p>
+            <div class="service-grid">
+                <!-- Service 1 -->
+                <article class="service-card">
+                    <h3>Web Design</h3>
+                    <p>Beautiful, responsive websites tailored to your needs.</p>
+                    <span class="price">$800 - $1500</span>
+                </article>
+                <!-- Service 2 -->
+                <article class="service-card">
+                    <h3>SEO Optimisation</h3>
+                    <p>Boost your visibility and reach more customers.</p>
+                    <span class="price">$400 - $900</span>
+                </article>
+                <!-- Service 3 -->
+                <article class="service-card">
+                    <h3>Custom Enterprise Solutions</h3>
+                    <p>Contact us for a specialised quote tailored to your business.</p>
+                    <span class="price">$1000+</span>
+                </article>
+            </div>
+        </section>
+        <!-- =========================
+             OPERATING HOURS TABLE
+        ========================== -->
+        <section class="services hours-section" aria-labelledby="hours-heading">
+            <h2 id="hours-heading">Studio Operating Hours</h2>
+            <table>
+                <caption>Weekly availability for client consultations</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Day</th>
+                        <th scope="col">Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday - Thursday</td>
+                        <td>9:00 AM - 5:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>9:00 AM - 3:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center; font-style: italic;">
+                            Closed Weekends and Public Holidays
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!-- =========================
+             ACKNOWLEDGEMENT SECTION
+        ========================== -->
+        <section class="acknowledgement" aria-labelledby="ack-heading">
+            <div class="ack-text">
+                <h2 id="ack-heading">Acknowledgement of Country</h2>
+                <p>
+                    <em>
+                        NextGen Web Works acknowledges the Traditional Owners and Custodians 
+                        of the lands on which we work and create. We pay our respects to 
+                        Indigenous Elders past, present, and emerging, and celebrate the 
+                        connection to Country, culture, and community.
+                    </em>
+                </p>
+            </div>
+            <div class="ack-images">
+                <img src="images/Aboriginal.webp" alt="Aboriginal flag">
+                <img src="images/Torres-2.jpg" alt="Torres Strait Islander flag">
+            </div>
+        </section>
+    </main>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+        <p>&copy; 2026 G06 Creative Media &amp; Design</p>
+        <p>
+            Contact us:
+            <a href="mailto:info@nextgenwebworks.com" title="Email our recruitment team">
+                info@nextgenwebworks.com
+            </a>
+        </p>
+        <!-- External links -->
+        <a href="https://vsuk0001.atlassian.net/jira/software/projects/CGRW/summary" 
+           target="_blank" rel="noopener noreferrer">
+            Jira Board
+        </a>
+        <a href="https://github.com/105533624/Assignment_1" 
+           target="_blank" rel="noopener noreferrer">
+            GitHub Repository
+        </a>
+        <a href="https://105533624.github.io/Assignment_1/" 
+           target="_blank" rel="noopener noreferrer">
+            Live Website
+        </a>
+    </footer>
 </body>
 </html>

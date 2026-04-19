@@ -4,32 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NextGen Web Works - Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    .jobs-intro {
+        background-color: #f2f7fc;
+        border-left: 5px solid #084887;
+        padding: 1em 1.5em;
+        margin: 2em auto;
+        max-width: 70%;
+        border-radius: 6px;
+        font-style: italic;
+        color: #084887;
+    }
+</style>
 </head>
 <body>
     <header>
+    <div class="logo">
         <img src="images/logo.png" alt="NextGen Web Works Logo" width="100">
-        <h1>NextGen Web Works</h1>
-        <p><em>Designing the Digital Future, Today.</em></p>
-        
-        <nav>
-            <ul>
-                <li><a href="index.html" title="Home Page">Home</a></li>
-                <li><a href="jobs.html" title="Browse Careers">Jobs</a></li>
-                <li><a href="apply.html" title="Submit Application">Apply</a></li>
-                <li><a href="about.html" title="About the Team">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
+        <div class="logo-text">
+            <h1>NextGen Web Works</h1>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html" title="Home Page">Home</a></li>
+            <li><a href="jobs.html" title="Browse Careers">Jobs</a></li>
+            <li><a href="apply.html" title="Submit Application">Apply</a></li>
+            <li><a href="about.html" title="About the Team">About Us</a></li>
+        </ul>
+    </nav>
+</header>
+
     <main>
+        <div class="jobs-intro">
+            <p>Browse our current openings below. All applications are reviewed by our creative team within 5 business days.</p>
+        </div>
         <aside class="benefits-sidebar">
             <h2>Why Join Us?</h2>
             <p>At NextGen Web Works, we offer flexible working hours, remote options, and a dedicated budget for your creative setup.</p>
+            <p>We prioritize <strong>inclusive design</strong> and high-contrast accessibility in all our projects.</p>
         </aside>
 
-        <article class="job-listing">
-            <h2>Senior <abbr title="User Experience and User Interface">UX/UI</abbr> Designer (Ref: UXD01)</h2>
+        <section class="job-listing">
+            <h2>Senior <abbr title="User Experience and User Interface">UX/UI</abbr> Designer 
+                <span class="ref-number">UXD01</span> </h2>
             
-            <p><strong>Salary:</strong> <mark>$110,000 - $130,000</mark> | <strong>Reports to:</strong> Creative Director</p>
+            <p><span class="salary-tag">$110,000 - $130,000</span> | <strong>Reports to:</strong> Creative Director</p>
             <p>We are looking for a visionary designer to lead our user experience strategies and craft beautiful, highly functional interfaces for our digital clients.</p>
             
             <h3>Key Responsibilities</h3>
@@ -45,13 +66,23 @@
                 <li>Expertise in Figma, Adobe Creative Suite, and prototyping tools.</li>
                 <li>A strong portfolio demonstrating creative web solutions.</li>
             </ol>
-            
-            <p><em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em></p>
-        </article>
 
-        <article class="job-listing">
-            <h2>Junior Front-End Developer (Ref: DEV02)</h2>
-            <p><strong>Salary:</strong> <mark>$70,000 - $85,000</mark> | <strong>Reports to:</strong> Lead Developer</p>
+            <h3>Preferable Requirements</h3>
+            <ul>
+                <li>Experience with motion design or micro-interactions.</li>
+                <li>Background in branding or visual identity systems.</li>
+                <li>Familiarity with front-end frameworks and design tokens.</li>
+            </ul>
+            
+            <p style="color: #B4654A; font-weight: bold;"><em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em></p>
+            
+            <a href="apply.html" class="cta" title="Apply for the Senior UX/UI Designer position">Apply Now</a>
+        </section>
+
+        <section class="job-listing">
+            <h2>Junior Front-End Developer 
+                <span class="ref-number">DEV02</span> </h2>
+            <p><span class="salary-tag">$70,000 - $85,000</span> | <strong>Reports to:</strong> Lead Developer</p>
             <p>Join our coding team to bring stunning creative designs to life using standard web technologies with a focus on accessibility.</p>
             
             <h3>Key Responsibilities</h3>
@@ -67,18 +98,24 @@
                 <li>Understanding of cross-browser compatibility issues.</li>
                 <li>Strong communication skills and willingness to learn.</li>
             </ol>
-            
-            <p><em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em></p>
-        </article>
-    </main>
 
-    <footer>
-        <div class="acknowledgement">
-        <p><em>NextGen Web Works acknowledges the Traditional Owners and Custodians of the lands on which we work and create. We pay our respects to Indigenous Elders past, present, and emerging, and celebrate the continuous continuous connection to Country, culture, and community.</em></p>
-    </div>
+            <h3>Preferable Requirements</h3>
+            <ul>
+                <li>Experience deploying static sites via GitHub Pages or Netlify.</li>
+                <li>Basic knowledge of accessibility testing tools (WAVE, Lighthouse).</li>
+                <li>Familiarity with version control via Git.</li>
+            </ul>
+            
+            <p style="color: #B4654A; font-weight: bold;"><em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em></p>
+            
+            <a href="apply.html" class="cta" title="Apply for the Junior Front-End Developer position">Apply Now</a>
+        </section>
+    </main>
+    <footer class="footer">
         <p>&copy; 2026 G06 Creative Media &amp; Design</p>
         <p>Contact us: <a href="mailto:info@nextgenwebworks.com" title="Email our recruitment team">info@nextgenwebworks.com</a></p>
-        <p><a href="https://jira.swin.edu.au/..." target="_blank">Jira Board</a> | <a href="https://github.com/105533624/Assignment_1" target="_blank">GitHub Repository</a></p>
+        <a href="https://vsuk0001.atlassian.net/jira/software/projects/CGRW/summary" target="_blank" rel="noopener noreferrer">Jira Board</a>
+    <a href="https://github.com/105533624/Assignment_1" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
     </footer>
     
 </body>
