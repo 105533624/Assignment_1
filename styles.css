@@ -410,13 +410,14 @@ mark {
 }
 
 /*CSS for apply.html*/
-.form-section{
-    display: flex; 
+.form-section {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center; 
-    min-height: 50em;
-    padding: 0 5em; 
-    background-color:#F9FAFC;
+    align-items: center;
+    min-height: auto;
+    padding: 2em 1em;
+    background-color: #F9FAFC;
 }
 
 .form-container{
