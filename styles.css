@@ -503,3 +503,29 @@ legend{
     font-style: italic;
     color: #B4654A;
 }
+
+.about-main {
+    max-width: 1100px;
+    margin: 2em auto;
+    padding: 0 2em;
+}
+
+.about-main > h2 {
+    color: #084887;
+    text-align: center;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 3px solid #F5C107;
+}
+
+.about-main section {
+    margin-bottom: 2.5em;
+}
+
+.about-main section h3 {
+    color: #084887;
+    font-size: 1.4em;
+    border-left: 5px solid #F5C107;
+    padding-left: 0.8em;
+    margin-bottom: 1em;
+}
