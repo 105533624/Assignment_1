@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!-- Generative AI tool (e.g., ChatGPT) was used for suggestions, code improvement,adding comments and image generation.All AI-generated code was reviewed and modified by the author before use. -->
+ <!DOCTYPE html>
 <html lang="en">
 <head> 
      <!-- META DATA SECTION: Defines page info, SEO, and links CSS -->
@@ -50,13 +51,13 @@
         <fieldset>
             <legend><b>Job Application Details</b></legend>
             <label for="jobref">Job reference number</label>
-            <input type="text" id="jobref" name="jobref" pattern="[a-zA-Z0-9]{5}" required title="Must be exactly 5 alphanumeric characters"><br><br>
+            <input type="text" id="jobref" name="jobref" pattern="[a-zA-Z0-9]{5}" required title="Must be exactly 5 alphanumeric characters">
             <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname" pattern="[a-zA-Z]{1,20}" required><br><br>
+            <input type="text" id="firstname" name="firstname" pattern="[a-zA-Z]{1,20}" required>
             <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" pattern="[a-zA-Z]{1,20}" required><br><br>
+            <input type="text" id="lastname" name="lastname" pattern="[a-zA-Z]{1,20}" required>
             <label for="date">Date of birth</label>
-            <input type="date" id="date" name="date" required><br><br>
+            <input type="date" id="date" name="date" required>
         </fieldset>
         <!-- FIELDSET 2: GENDER (RADIO BUTTONS - ONLY ONE CAN BE SELECTED) -->
           <fieldset>
@@ -72,9 +73,9 @@
         <fieldset>
             <legend><b>Address</b></legend>
             <label for="street">Street Address</label>
-            <input type="text" id="street" name="street" pattern="[a-zA-Z0-9 ]{1,40}" required><br><br>
+            <input type="text" id="street" name="street" pattern="[a-zA-Z0-9 ]{1,40}" required>
             <label for="suburb">Suburb/Town</label>
-            <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z ]{1,40}" required><br><br>
+            <input type="text" id="suburb" name="suburb" pattern="[a-zA-Z ]{1,40}" required>
             <label for="state">State</label>
             <select id="state" name="state" required><!-- Dropdown menu -->
              <option value="" disabled selected>Please Select</option> 
@@ -86,17 +87,17 @@
              <option value="SA">SA</option> 
              <option value="TAS">TAS</option> 
              <option value="ACT">ACT</option>
-            </select><br><br>
+            </select>
             <label for="postcode">Postcode</label>
-            <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" required><br><br><!-- 4 digit postcode -->
+            <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" required><!-- 4 digit postcode -->
         </fieldset>
         <!-- FIELDSET 4: CONTACT DETAILS -->
         <fieldset>
             <legend><b>Contact Information</b></legend>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="example@gmail.com" required title="Please enter an appropriate email address"><br><br>
+            <input type="email" id="email" name="email" placeholder="example@gmail.com" required title="Please enter an appropriate email address">
             <label for="phone">Phone number</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{8,12}" required><br><br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{8,12}" required>
         </fieldset>
         <!-- FIELDSET 5: SKILLS (CHECKBOXES - MULTIPLE CAN BE SELECTED) -->
         <fieldset>
@@ -115,12 +116,12 @@
         <label for="skill-js">JavaScript</label>
     </li>
 </ul>   
-        </fieldset><br>
+        </fieldset>
         <fieldset>
             <legend><b>Other Skills</b></legend>
             <label for="otherskills">List any additional skills you have:</label><br>
             <textarea id="otherskills" name="otherskills" rows="4" cols="50" placeholder="e.g. Figma, Adobe Illustrator, team leadership..."></textarea>
-        </fieldset><br>
+        </fieldset>
         <!-- FORM BUTTONS -->
         <div class="form-buttons">
             <button type="submit">Submit Application</button><!-- Sends form -->
