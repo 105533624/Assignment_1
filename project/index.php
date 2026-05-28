@@ -1,15 +1,19 @@
 <!-- Generative AI tool (e.g., ChatGPT) was used for suggestions, code improvement,adding comments and image generation.All AI-generated code was reviewed and modified by the author before use. -->
- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- =========================
          META DATA + PAGE SETUP
     ========================== -->
-    <meta charset="UTF-8"> <!-- Supports all characters -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes site responsive -->
+    <meta charset="UTF-8"><!-- Character encoding (supports all text characters) -->
+    <meta name="description" content="index.html"> <!-- Page description -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, Doctype, Head, Body, Meta, Paragraph, Headings, Strong, Emphasis"><!-- SEO keywords -->
+    <meta name="author" content="Vansh and Hamnah"><!-- Author of the page -->
     <title>NextGen Web Works - Home</title> <!-- Browser tab title -->
     <!-- External CSS file -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <!-- Embedded CSS (inside HTML) -->
     <style>
         /* Hero section background image with dark overlay */
@@ -38,10 +42,10 @@
         <!-- Navigation menu -->
         <nav>
             <ul>
-                <li><a href="index.html" title="Home Page">Home</a></li>
-                <li><a href="jobs.html" title="Browse Careers">Jobs</a></li>
-                <li><a href="apply.html" title="Submit Application">Apply</a></li>
-                <li><a href="about.html" title="About the Team">About Us</a></li>
+                <li><a href="index.php" title="Home Page">Home</a></li>
+                <li><a href="jobs.php" title="Browse Careers">Jobs</a></li>
+                <li><a href="apply.php" title="Submit Application">Apply</a></li>
+                <li><a href="about.php" title="About the Team">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -126,6 +130,19 @@
                 </tbody>
             </table>
         </section>
+        <section class="services">
+    <h2>Client Testimonials</h2>
+
+    <blockquote>
+        “NextGen Web Works transformed our business website completely.”
+        <cite>- Sarah Johnson, Bright Media</cite>
+    </blockquote>
+
+    <blockquote>
+        “Professional, creative, and highly responsive team.”
+        <cite>- Daniel Lee, TechNova</cite>
+    </blockquote>
+</section>
         <!-- =========================
              ACKNOWLEDGEMENT SECTION
         ========================== -->
@@ -165,7 +182,6 @@
         <a href="https://vsuk0001.atlassian.net/jira/software/projects/CGRW/summary" target="_blank" rel="noopener noreferrer">Jira Board</a>
         <a href="https://github.com/105533624/Assignment_1" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
         <a href="https://105533624.github.io/Assignment_1/" target="_blank" rel="noopener noreferrer">Live Website</a>
-
     </footer>
 </body>
 </html>
