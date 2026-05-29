@@ -17,7 +17,7 @@
     <style>
         /* Hero section background image with dark overlay */
         .hero-bg {
-            background-image: linear-gradient(rgba(8, 72, 135, 0.85), rgba(8, 72, 135, 0.85)),
+            background-image: linear-gradient(rgba(13, 3, 160, 0.93), rgba(0, 17, 72, 0.85)),
                               url('images/Gemini_Generated_Image_o8qlqro8qlqro8ql.png');
             background-size: cover; /* Makes image cover full section */
             background-position: center; /* Centers the image */
