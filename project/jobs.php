@@ -43,7 +43,9 @@ if (isset($_GET["sort"])) {
     switch ($_GET["sort"]) {
 
         case "salary":
-            $sort = "salary ASC";
+
+            // extract first number from salary string for sorting
+            $sort = "CAST(REPLACE(SUBSTRING_INDEX(salary, '-', 1), '$', '') AS UNSIGNED) ASC";
             break;
 
         case "closing":
