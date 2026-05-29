@@ -153,16 +153,6 @@
                   rows="4" cols="50"
                   placeholder="e.g. Figma, Adobe Illustrator, team leadership..."></textarea>
     </fieldset>
-
-    <!-- RESUME UPLOAD -->
-    <fieldset>
-        <legend><b>Resume Upload</b></legend>
-
-        <label for="resume">Upload Resume</label>
-        <input type="file" id="resume" name="resume"
-               accept=".pdf,.doc,.docx">
-    </fieldset>
-
     <!-- BUTTONS -->
     <div class="form-buttons">
         <button type="submit">Submit Application</button>
