@@ -141,61 +141,270 @@ font-family: inherit;
 .hero-search input[type="text"]:focus {
 outline: 3px solid #F5C107;
 }
+/* =========================
+   PRICING PACKAGES SECTION
+========================= */
 
-/* =============== HOME , SERVICES SECTION =============== */
-.hours-section {
-padding-top: 0;
+/* SECTION BACKGROUND */
+.pricing-section {
+    background: #F0F2F5;
+    padding: 80px 20px;
+    text-align: center;
 }
 
-.services {
-padding: 2em 2em 3em 2em;
-max-width: 90%;
-margin: auto;
-text-align: center;
+/* TITLE */
+.pricing-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    font-weight: 800;
 }
 
-.services h2 {
-font-size: 1.8em;
-color: black;
-margin-bottom: 0.5em;
+/* TWO-TONE TITLE */
+.pricing-section h2 .dark {
+    color: #084887;
 }
 
-/* =============== SERVICE CARDS =============== */
-.service-grid {
-display: flex;
-gap: 2em;
-justify-content: center;
-flex-wrap: wrap;
-margin-top: 2em;
+.pricing-section h2 .gold {
+    color: #F5C107;
 }
 
-.service-card {
-background: rgba(255,255,255,0.15);
-backdrop-filter: blur(12px);
--webkit-backdrop-filter: blur(12px);
-border: 1px solid rgba(255,255,255,0.2);
-box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+/* SUBTITLE */
+.pricing-subtitle {
+    color: #7A7A7A;
+    font-size: 1rem;
+    margin-bottom: 55px;
 }
 
-.service-card:hover {
-transform: translateY(-12px) scale(1.03);
-box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-background: rgba(255,255,255,0.22);
+/* =========================
+   GRID LAYOUT
+========================= */
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 22px;
+    flex-wrap: nowrap;
+    max-width: 1180px;
+    margin: auto;
 }
 
-.service-card h3 {
-color: black;
-margin-bottom: 0.5em;
+/* =========================
+   GENERAL CARD STYLING
+========================= */
+.pricing-card {
+    width: 310px;
+    border-radius: 18px; 
+    overflow: hidden; 
+    transition: 0.3s ease;
+    position: relative;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
 }
 
-.service-card .price {
-display: block;
-margin-top: 1em;
-font-weight: bold;
-color: black;
+/* HOVER EFFECT */
+.pricing-card:hover {
+    transform: translateY(-8px);
 }
 
+/* =========================
+   STARTER + ENTERPRISE
+========================= */
+.pricing-card.standard-card {
+    background: #FFFFFF; 
+    border: 1px solid #D9DDE3; 
+    padding: 40px 28px; 
+    text-align: left;
+}
+
+/* CARD TITLES */
+.standard-card h3 {
+    color: #084887;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
+/* PRICE */
+.standard-card .package-price {
+    margin-bottom: 30px;
+}
+
+.standard-card .price {
+    color: #084887;
+    font-size: 3rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+.standard-card .per {
+    color: #8A8A8A;
+    font-size: 0.95rem;
+}
+
+/* ENTERPRISE CUSTOM TEXT */
+.standard-card .custom-price {
+    font-size: 2.5rem;
+}
+
+/* =========================
+   FEATURE LIST
+========================= */
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-card ul li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    font-size: 0.96rem;
+    line-height: 1.5;
+}
+
+/* NAVY CHECKMARKS */
+.standard-card ul li::before {
+    content: "✓";
+    width: 22px;
+    height: 22px;
+    background: #084887;
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* =========================
+   GROWTH CARD
+========================= */
+.featured-package {
+    background: #084887;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(8, 72, 135, 0.25);
+}
+
+/* POPULAR BANNER */
+.popular-badge {
+    background: #F5C107;
+    color: #1A1A1A;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 12px;
+}
+
+/* BLUE HEADER BAND */
+.featured-header {
+    background: #06376C;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+.featured-header h3 {
+    color: #F5C107;
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+/* GROWTH BODY */
+.featured-content {
+    padding: 35px 28px 40px;
+    text-align: left;
+}
+
+/* GROWTH PRICE */
+.featured-package .price {
+    color: #FFFFFF;
+    font-size: 3.2rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+.featured-package .per {
+    color: #B8C7D9;
+    font-size: 0.95rem;
+}
+
+/* GROWTH FEATURES */
+.featured-package ul li {
+    color: #FFFFFF;
+}
+
+/* GOLD CHECKMARKS */
+.featured-package ul li::before {
+    content: "✓";
+    width: 22px;
+    height: 22px;
+    background: #F5C107;
+    color: #111111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.package-btn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+/* STANDARD BUTTON */
+.standard-card .package-btn {
+    background: #084887;
+    color: #FFFFFF;
+}
+
+.standard-card .package-btn:hover {
+    background: #06376C;
+}
+
+/* FEATURED BUTTON */
+.featured-package .package-btn {
+    background: #F5C107;
+    color: #111111;
+}
+
+.featured-package .package-btn:hover {
+    opacity: 0.9;
+}
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .pricing-section h2 {
+        font-size: 2.2rem;
+    }
+}
 /* =============== TABLES =============== */
 table {
 width: 80%;
@@ -231,7 +440,110 @@ tbody tr:hover {
 background-color: #F5C107;
 color: #000;
 }
+/* =============== CLIENT TESTIMONIALS =============== */
+.testimonials-section {
+    text-align: center;
+    padding: 3em 2em 4em;
+    max-width: 90%;
+    margin: 0 auto;
+    background-color: #F9FAFC;
+}
 
+.testimonials-title {
+    font-size: 2.4em;
+    color: #084887;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+.testimonials-stars {
+    color: #F5C107;
+    font-size: 2em;
+    letter-spacing: 0.15em;
+    margin-bottom: 1em;
+}
+
+.testimonials-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.8em;
+    flex-wrap: wrap;
+    margin-top: 1em;
+}
+
+.testimonial-card {
+    background-color: #0f4e92;
+    border-radius: 10px;
+    width: 300px;
+    min-height: 320px;
+    padding: 1.5em 1.8em 1.5em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.testimonial-quote {
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    font-size: 4em;
+    color: #F5C107;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+.testimonial-text {
+    color: #FFFFFF;
+    font-style: italic;
+    font-size: 0.97em;
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+    margin-top: auto;
+}
+
+.testimonial-divider {
+    height: 3px;
+    background-color: #F5C107;
+    width: 60%;
+    margin-bottom: 0.8em;
+    border-radius: 2px;
+}
+
+.testimonial-name {
+    color: #F5C107;
+    font-weight: bold;
+    font-size: 1em;
+    margin: 0 0 0.2em;
+}
+
+.testimonial-company {
+    color: #c0cfe0;
+    font-size: 0.88em;
+    margin: 0;
+}
+
+.testimonials-average {
+    margin-top: 2em;
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #084887;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .testimonials-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card {
+        width: 90%;
+        max-width: 380px;
+    }
+}
 /* =============== ACKNOWLEDGEMENT =============== */
 .acknowledgement {
 display: flex;
