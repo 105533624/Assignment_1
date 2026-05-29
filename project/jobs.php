@@ -14,7 +14,7 @@ if (!$conn) {
    SEARCH + SORT
 ========================= */
 $search = "";
-$sort = "title ASC";
+$sort = "id ASC";
 
 $sql = "SELECT * FROM jobs";
 
@@ -39,15 +39,19 @@ if (isset($_GET["search"]) && !empty(trim($_GET["search"]))) {
 
 /* SORT */
 if (isset($_GET["sort"])) {
+
     switch ($_GET["sort"]) {
+
         case "salary":
             $sort = "salary ASC";
             break;
+
         case "closing":
             $sort = "closing_date ASC";
             break;
+
         default:
-            $sort = "title ASC";
+            $sort = "id ASC";
     }
 }
 
@@ -72,22 +76,48 @@ include("includes/nav.inc");
     <div class="jobs-main">
 
         <div class="jobs-intro">
-            <p>Browse our current openings below. Applications are reviewed within 5 business days.</p>
+            <p>
+                Browse our current openings below.
+                Applications are reviewed within 5 business days.
+            </p>
         </div>
 
+        <!-- SEARCH + SORT -->
         <form method="get" action="jobs.php" class="search-form">
 
-            <input type="text" name="search"
+            <input
+                type="text"
+                name="search"
                 placeholder="Search jobs..."
-                value="<?php echo htmlspecialchars($search); ?>">
+                value="<?php echo htmlspecialchars($search); ?>"
+            >
 
             <select name="sort">
-                <option value="title">Sort by Title</option>
-                <option value="salary">Sort by Salary</option>
-                <option value="closing">Sort by Closing Date</option>
+
+                <option value="">Sort Jobs</option>
+
+                <option value="salary"
+                    <?php
+                    if (isset($_GET['sort']) && $_GET['sort'] == 'salary') {
+                        echo 'selected';
+                    }
+                    ?>>
+                    Sort by Salary
+                </option>
+
+                <option value="closing"
+                    <?php
+                    if (isset($_GET['sort']) && $_GET['sort'] == 'closing') {
+                        echo 'selected';
+                    }
+                    ?>>
+                    Sort by Closing Date
+                </option>
+
             </select>
 
             <button type="submit">Search</button>
+
         </form>
 
         <?php
@@ -102,6 +132,7 @@ include("includes/nav.inc");
 
             <h2>
                 <?php echo htmlspecialchars($row["title"]); ?>
+
                 <span class="ref-number">
                     <?php echo htmlspecialchars($row["job_reference"]); ?>
                 </span>
@@ -111,46 +142,70 @@ include("includes/nav.inc");
                 <span class="salary-tag">
                     <?php echo htmlspecialchars($row["salary"]); ?>
                 </span>
+
                 | <strong>Reports to:</strong>
+
                 <?php echo htmlspecialchars($row["reports_to"]); ?>
             </p>
 
-            <p><?php echo htmlspecialchars($row["description"]); ?></p>
+            <p>
+                <?php echo htmlspecialchars($row["description"]); ?>
+            </p>
 
+            <!-- RESPONSIBILITIES -->
             <h3>Key Responsibilities</h3>
+
             <ul>
                 <?php
                 foreach (explode("\n", $row["responsibilities"]) as $item) {
-                    echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
                 }
                 ?>
             </ul>
 
+            <!-- ESSENTIAL -->
             <h3>Essential Requirements</h3>
+
             <ul>
                 <?php
                 foreach (explode("\n", $row["essential_requirements"]) as $item) {
-                    echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
                 }
                 ?>
             </ul>
 
+            <!-- PREFERRED -->
             <h3>Preferred Requirements</h3>
+
             <ul>
                 <?php
                 foreach (explode("\n", $row["preferred_requirements"]) as $item) {
-                    echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
                 }
                 ?>
             </ul>
 
             <p class="closing-date">
-                <em>Applications close on <?php echo htmlspecialchars($row["closing_date"]); ?></em>
+                <em>
+                    Applications close on
+                    <?php echo htmlspecialchars($row["closing_date"]); ?>
+                </em>
             </p>
 
-            <a class="cta"
-               href="apply.php?jobref=<?php echo urlencode($row["job_reference"]); ?>">
-               Apply Now
+            <a
+                class="cta"
+                href="apply.php?jobref=<?php echo urlencode($row["job_reference"]); ?>"
+            >
+                Apply Now
             </a>
 
         </section>
@@ -163,9 +218,10 @@ include("includes/nav.inc");
     <aside class="benefits-sidebar">
 
         <h2>Why Join Us?</h2>
+
         <p>
-            We offer flexible working hours, remote options,
-            and a dedicated creative environment.
+            We offer flexible working hours,
+            remote options, and a dedicated creative environment.
         </p>
 
         <p>
@@ -176,4 +232,7 @@ include("includes/nav.inc");
 
 </main>
 
-<?php include("includes/footer.inc"); ?>
+<?php
+include("includes/footer.inc");
+mysqli_close($conn);
+?>
