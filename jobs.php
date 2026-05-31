@@ -1,160 +1,177 @@
-<!-- Generative AI tool (e.g., ChatGPT) was used for suggestions, code improvement,adding comments and image generation.All AI-generated code was reviewed and modified by the author before use. -->
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- =========================
-         META DATA + PAGE SETUP
-    ========================== -->
-    <meta charset="UTF-8"> <!-- Supports all characters -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
-    <title>NextGen Web Works - Jobs</title> <!-- Page title -->
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/project-2/styles/styles.css">
-    <!-- Embedded CSS -->
-    <style>
-        /* Intro box styling at top of page */
-        .jobs-intro {
-            background-color: #f2f7fc;
-            border-left: 5px solid #084887;
-            padding: 1em 1.5em;
-            margin: 2em auto;
-            max-width: 70%;
-            border-radius: 6px;
-            font-style: italic;
-            color: #084887;
-        }
-    </style>
-</head>
-<body>
-    <!-- =========================
-         HEADER (LOGO + NAV)
-    ========================== -->
-    <?php 
-    include_once(__DIR__ . "/inc/header.inc"); 
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once("settings.php");
+
+$search = "";
+$sort = "id ASC";
+
+$sql = "SELECT * FROM jobs";
+
+$params = [];
+$types = "";
+
+if (isset($_GET["search"]) && !empty(trim($_GET["search"]))) {
+    $search = trim($_GET["search"]);
+    $sql .= " WHERE title LIKE ? OR description LIKE ? OR job_reference LIKE ?";
+    $search_term = "%$search%";
+
+    $params[] = $search_term;
+    $params[] = $search_term;
+    $params[] = $search_term;
+    $types .= "sss";
+}
+
+if (isset($_GET["sort"])) {
+    switch ($_GET["sort"]) {
+        case "salary":
+            $sort = "CAST(REPLACE(SUBSTRING_INDEX(salary, '-', 1), '$', '') AS UNSIGNED) ASC";
+            break;
+        case "closing":
+            $sort = "closing_date ASC";
+            break;
+        default:
+            $sort = "id ASC";
+    }
+}
+
+$sql .= " ORDER BY $sort";
+$stmt = mysqli_prepare($conn, $sql);
+
+/* Error catcher to identify database table layout mismatches */
+if (!$stmt) {
+    die("<strong>SQL Preparation Error:</strong> " . mysqli_error($conn) . "<br><br><strong>Query Attempted:</strong> " . $sql);
+}
+
+if (!empty($params)) {
+    mysqli_stmt_bind_param($stmt, $types, ...$params);
+}
+
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+$page_title = "Jobs & Careers";
+
+require_once(__DIR__ . "/inc/header.inc");
 ?>
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
-    <main>
-        <!-- Intro message for jobs page -->
+
+<main class="jobs-container">
+
+    <div class="jobs-main">
+
         <div class="jobs-intro">
             <p>
-                Browse our current openings below. All applications are reviewed by our creative team within 5 business days.
+                Browse our current openings below. 
+                Applications are reviewed within 5 business days.
             </p>
         </div>
-        <!-- Sidebar with benefits (extra info section) -->
-        <aside class="benefits-sidebar">
-            <h2>Why Join Us?</h2>
-            <p>
-                At NextGen Web Works, we offer flexible working hours, remote options, and a dedicated budget for your creative setup.
-            </p>
-            <p>
-                We prioritize inclusive design and accessibility in all our projects.
-            </p>
-        </aside>
-        <!-- =========================
-             JOB LISTING 1
-        ========================== -->
+
+        <form method="get" action="jobs.php" class="search-form">
+            <input
+                type="text"
+                name="search"
+                placeholder="Search jobs..."
+                value="<?php echo htmlspecialchars($search); ?>"
+            >
+
+            <select name="sort">
+                <option value="">Sort Jobs</option>
+                <option value="salary" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'salary') echo 'selected'; ?>>
+                    Sort by Salary
+                </option>
+                <option value="closing" <?php if (isset($_GET['sort']) && $_GET['sort'] == 'closing') echo 'selected'; ?>>
+                    Sort by Closing Date
+                </option>
+            </select>
+
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+
+        <?php
+        if (mysqli_num_rows($result) == 0) {
+            echo "<p class='no-results'>No job vacancies match your criteria at this time.</p>";
+        }
+
+        while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+
         <section class="job-listing">
-            <!-- Job title + reference number -->
             <h2>
-                Senior <abbr title="User Experience and User Interface">UX/UI</abbr> Designer
-                <span class="ref-number">UXD01</span>
+                <?php echo htmlspecialchars($row["title"]); ?>
+                <span class="ref-number">
+                    <?php echo htmlspecialchars($row["job_reference"]); ?>
+                </span>
             </h2>
-            <!-- Salary + reporting line -->
+
             <p>
-                <span class="salary-tag">$110,000 - $130,000</span> |
-                <strong>Reports to:</strong> Creative Director
+                <span class="salary-tag"><?php echo htmlspecialchars($row["salary"]); ?></span> 
+                | <strong>Reports to:</strong> <?php echo htmlspecialchars($row["reports_to"]); ?>
             </p>
-            <!-- Job description -->
-            <p>
-                We are looking for a visionary designer to lead our user experience strategies and craft beautiful,
-                highly functional interfaces for our digital clients.
+
+            <p class="job-description-text">
+                <?php echo htmlspecialchars($row["description"]); ?>
             </p>
-            <!-- Responsibilities -->
+
             <h3>Key Responsibilities</h3>
             <ul>
-                <li>Lead the design process from wireframing to high-fidelity prototypes.</li>
-                <li>Conduct user research and usability testing.</li>
-                <li>Collaborate closely with the development team.</li>
+                <?php
+                foreach (explode("\n", $row["responsibilities"]) as $item) {
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
+                }
+                ?>
             </ul>
-            <!-- Essential requirements -->
+
             <h3>Essential Requirements</h3>
-            <ol>
-                <li>Minimum 5 years of experience in <abbr title="User Interface and User Experience">UI/UX</abbr> design.</li>
-                <li>Expertise in Figma, Adobe Creative Suite, and prototyping tools.</li>
-                <li>A strong portfolio demonstrating creative web solutions.</li>
-            </ol>
-            <!-- Preferred requirements -->
-            <h3>Preferable Requirements</h3>
             <ul>
-                <li>Experience with motion design or micro-interactions.</li>
-                <li>Background in branding or visual identity systems.</li>
-                <li>Familiarity with front-end frameworks and design tokens.</li>
+                <?php
+                foreach (explode("\n", $row["essential_requirements"]) as $item) {
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
+                }
+                ?>
             </ul>
-            <!-- Inline CSS example -->
-            <p style="color: #084887; font-weight: bold;">
-                <em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em>
+
+            <h3>Preferred Requirements</h3>
+            <ul>
+                <?php
+                foreach (explode("\n", $row["preferred_requirements"]) as $item) {
+                    if (trim($item) != "") {
+                        echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                    }
+                }
+                ?>
+            </ul>
+
+            <p class="closing-date">
+                <em>Applications close on: <strong><?php echo htmlspecialchars($row["closing_date"]); ?></strong></em>
             </p>
-            <!-- Call-to-action button -->
-            <a href="apply.html" class="cta" title="Apply for the Senior UX/UI Designer position">
+
+            <a class="cta" href="apply.php?jobref=<?php echo urlencode($row["job_reference"]); ?>">
                 Apply Now
             </a>
         </section>
-        <!-- =========================
-             JOB LISTING 2
-        ========================== -->
-        <section class="job-listing">
-            <!-- Job title + reference -->
-            <h2>
-                Junior Front-End Developer
-                <span class="ref-number">DEV02</span>
-            </h2>
-            <!-- Salary + reporting -->
-            <p>
-                <span class="salary-tag">$70,000 - $85,000</span> |
-                <strong>Reports to:</strong> Lead Developer
-            </p>
-            <!-- Job description -->
-            <p>
-                Join our coding team to bring stunning creative designs to life using standard web technologies with a focus on accessibility.
-            </p>
-            <!-- Responsibilities -->
-            <h3>Key Responsibilities</h3>
-            <ul>
-                <li>Translate <abbr title="User Interface and User Experience">UI/UX</abbr> design wireframes to actual code.</li>
-                <li>Ensure technical feasibility of design layouts.</li>
-                <li>Optimize applications for maximum speed and scalability.</li>
-            </ul>
-            <!-- Essential requirements -->
-            <h3>Essential Requirements</h3>
-            <ol>
-                <li>Proficiency in semantic <abbr title="HyperText Markup Language 5">HTML5</abbr> and <abbr title="Cascading Style Sheets 3">CSS3</abbr>.</li>
-                <li>Understanding of cross-browser compatibility issues.</li>
-                <li>Strong communication skills and willingness to learn.</li>
-            </ol>
-            <!-- Preferred requirements -->
-            <h3>Preferable Requirements</h3>
-            <ul>
-                <li>Experience deploying static sites via GitHub Pages or Netlify.</li>
-                <li>Basic knowledge of accessibility testing tools (WAVE, Lighthouse).</li>
-                <li>Familiarity with version control via Git.</li>
-            </ul>
-            <!-- Inline CSS example -->
-            <p style="color: #084887; font-weight: bold;">
-                <em>Applications close on <time datetime="2026-05-30">May 30th, 2026</time>.</em>
-            </p>
-            <!-- Apply button -->
-            <a href="apply.html" class="cta" title="Apply for the Junior Front-End Developer position">
-                Apply Now
-            </a>
-        </section>
-    </main>
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <?php 
-    include_once(__DIR__ . "/inc/footer.inc"); 
+
+        <?php } ?>
+
+    </div>
+
+    <aside class="benefits-sidebar">
+        <h2>Why Join Us?</h2>
+        <p>
+            We offer flexible working hours, remote options, and a dedicated creative environment.
+        </p>
+        <p>
+            We prioritise inclusive design and accessibility.
+        </p>
+    </aside>
+
+</main>
+
+<?php
+require_once(__DIR__ . "/inc/footer.inc");
+mysqli_close($conn);
 ?>
-</body>
-</html>
