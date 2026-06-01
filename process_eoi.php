@@ -119,6 +119,7 @@ if (!preg_match("/^[0-9]{8,12}$/", $phone)) {
 
 if (count($errors) > 0) {
     echo "<!DOCTYPE html><html lang='en'>";
+<<<<<<< HEAD
     echo "<head><title>Validation Errors</title><link rel='stylesheet' href='/project-2/styles/styles.css'></head>";
     echo "<body>";
     include_once("inc/header.inc");
@@ -128,6 +129,15 @@ if (count($errors) > 0) {
     echo "<h2 class='error-heading'>Application Submission Failed</h2>";
     echo "<p>Please fix the following errors:</p>";
     echo "<ul class='error-list'>";
+=======
+    echo "<head><title>Validation Errors</title><link rel='stylesheet' href='styles/styles.css'></head>";
+    echo "<body>";
+    include_once("inc/header.inc");
+    echo "<main style='padding: 2em; max-width: 600px; margin: auto;'>";
+    echo "<h2 style='color: #cc0000;'>Application Submission Failed</h2>";
+    echo "<p>Please fix the following errors:</p>";
+    echo "<ul style='color: #cc0000; margin-bottom: 2em;'>";
+>>>>>>> c6c18d157fa4f9917e431f1c2976967298ef4f01
     foreach ($errors as $error) {
         echo "<li>" . htmlspecialchars($error) . "</li>";
     }
@@ -145,6 +155,7 @@ if (count($errors) > 0) {
     if (mysqli_stmt_execute($stmt)) {
         $generated_id = mysqli_insert_id($conn);
         echo "<!DOCTYPE html><html lang='en'>";
+<<<<<<< HEAD
         echo "<head><title>Application Successful</title><link rel='stylesheet' href='/project-2/styles/styles.css'></head>";
         echo "<body>";
         include_once("inc/header.inc");
@@ -153,6 +164,14 @@ if (count($errors) > 0) {
         echo "<main class='success-container'>";
         echo "<h2 class='success-heading'>Application Submitted Successfully!</h2>";
         echo "<p class='success-id-text'>Your EOI Reference Number: <strong>" . $generated_id . "</strong></p>";
+=======
+        echo "<head><title>Application Successful</title><link rel='stylesheet' href='styles/styles.css'></head>";
+        echo "<body>";
+        include_once("inc/header.inc");
+        echo "<main style='padding: 3em; text-align: center; max-width: 600px; margin: auto;'>";
+        echo "<h2 style='color: #084887;'>Application Submitted Successfully!</h2>";
+        echo "<p style='font-size: 1.2em; margin: 1.5em 0;'>Your EOI Reference Number: <strong>" . $generated_id . "</strong></p>";
+>>>>>>> c6c18d157fa4f9917e431f1c2976967298ef4f01
         echo "<p>Thank you for applying. Our HR team will be in touch shortly.</p>";
         echo "</main>";
         

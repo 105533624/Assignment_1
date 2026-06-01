@@ -125,7 +125,11 @@ require_once(__DIR__ . "/inc/header.inc");
     <h3>Expressions of Interest Logs</h3>
     <p style="font-size: 0.85em; font-style: italic; color: #666;">Click any underlined column header to sort.</p>
 
+<<<<<<< HEAD
     <table class="manage-table">
+=======
+    <table>
+>>>>>>> c6c18d157fa4f9917e431f1c2976967298ef4f01
         <thead>
             <tr>
                 <th><a href="manage.php?sort_field=eoi_id&search_ref=<?php echo urlencode($search_ref); ?>&search_name=<?php echo urlencode($search_name); ?>">ID</a></th>
@@ -177,4 +181,8 @@ require_once(__DIR__ . "/inc/header.inc");
     </table>
 </main>
 
+<<<<<<< HEAD
 <?php require_once(__DIR__ . "/inc/footer.inc"); ?>
+=======
+<?php require_once(__DIR__ . "/inc/footer.inc"); ?>
+>>>>>>> c6c18d157fa4f9917e431f1c2976967298ef4f01
