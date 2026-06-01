@@ -119,7 +119,7 @@ if (!preg_match("/^[0-9]{8,12}$/", $phone)) {
 
 if (count($errors) > 0) {
     echo "<!DOCTYPE html><html lang='en'>";
-    echo "<head><title>Validation Errors</title><link rel='stylesheet' href='/project-2/styles/styles.css'></head>";
+    echo "<head><title>Validation Errors</title><link rel='stylesheet' href='styles/styles.css'></head>";
     echo "<body>";
     include_once("inc/header.inc");
     echo "<main style='padding: 2em; max-width: 600px; margin: auto;'>";
@@ -142,7 +142,7 @@ if (count($errors) > 0) {
     if (mysqli_stmt_execute($stmt)) {
         $generated_id = mysqli_insert_id($conn);
         echo "<!DOCTYPE html><html lang='en'>";
-        echo "<head><title>Application Successful</title><link rel='stylesheet' href='/project-2/styles/styles.css'></head>";
+        echo "<head><title>Application Successful</title><link rel='stylesheet' href='styles/styles.css'></head>";
         echo "<body>";
         include_once("inc/header.inc");
         echo "<main style='padding: 3em; text-align: center; max-width: 600px; margin: auto;'>";
