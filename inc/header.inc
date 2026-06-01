@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NextGen Web Works - Digital Media Agency">
+    <meta name="keywords" content="web design, branding, digital agency, Melbourne">
     <meta name="author" content="Vansh and Hamnah">
     
     <title>NextGen Web Works - <?php echo isset($page_title) ? $page_title : 'Home'; ?></title>
