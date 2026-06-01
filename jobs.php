@@ -88,6 +88,12 @@ require_once(__DIR__ . "/inc/header.inc");
             <button type="submit" class="search-btn">Search</button>
         </form>
 
+        <?php if ($search != ""): ?>
+    <p style="font-style:italic; color:#084887;">
+        Showing <?php echo mysqli_num_rows($result); ?> result(s) for "<?php echo htmlspecialchars($search); ?>"
+    </p>
+<?php endif; ?>
+
         <?php
         if (mysqli_num_rows($result) == 0) {
             echo "<p class='no-results'>No job vacancies match your criteria at this time.</p>";
